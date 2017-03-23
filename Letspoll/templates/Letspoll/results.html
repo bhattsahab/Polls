@@ -1,0 +1,9 @@
+<h1> {{ question.querry }} </h1>
+
+<ul>
+{% for myvote in question.vote_set.all %}
+  <li> {{ myvote.choice }} -- {{ myvote.votes }} vote {{ myvote.votes|pluralize }} <li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'Letspoll:detail' question.id %}">Vote again?</a>
